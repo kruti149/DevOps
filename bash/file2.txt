@@ -1,0 +1,18 @@
+Printing file contents
+1 number is: kruti parmar
+Printing file contents
+2 number is: naira rawat
+Printing file contents
+3 number is: tarun rawat
+Printing file contents
+4 number is: manujula parmar
+Printing file contents
+5 number is: varun parmar
+Printing file contents
+6 number is: 
+Printing file contents
+7 number is: pravin parmar
+Printing file contents
+8 number is: 
+Printing file contents
+9 number is: 
