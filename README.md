@@ -1,2 +1,2 @@
-# DevOps_Git
-Git tutorial
+# BASH SCRIPTING
+BASH tutorial
