@@ -1,2 +1,2 @@
-# DevOps_Git
-Git tutorial
+# DevOps
+DevOps tools tutorial
