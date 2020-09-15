@@ -1,5 +1,8 @@
 pipeline {
    agent any
+   environment{
+     BRANCH_NAME = "Jenkins"
+   }
 
    stages {
       stage('SCM') {
@@ -10,7 +13,7 @@ pipeline {
       }
       stage('Build') {
          steps {
-            echo 'Start building...'
+            echo " Starting build in {$BRANCH_NAME}" 
             bat 'build.bat'
          }
       }
