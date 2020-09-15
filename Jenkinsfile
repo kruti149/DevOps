@@ -5,7 +5,7 @@ pipeline {
       stage('SCM') {
           steps {
               echo 'Check out scripts from GitHub'
-              git 'https://github.com/CamperDave2016/pipeline_scripts.git'
+              git 'https://github.com/kruti149/DevOps.git'
           }
       }
       stage('Build') {
@@ -14,10 +14,9 @@ pipeline {
             bat 'build.bat'
          }
       }
-      stage('NUnit') {
+      stage('Unit') {
           steps {
-            echo 'Start NUnit testing...'
-            bat 'nunit.bat'
+              bat 'testing.bat'
           }
       }
       stage('Deploy') {
