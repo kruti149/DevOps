@@ -1,21 +1,24 @@
 pipeline {
    agent any
    environment{
-     BRANCH_NAME = "Jenkins"
+     GIT_BRANCH = "Jenkins"
    }
 
    stages {
-      if(env.BRANCH_NAME == 'Jenkins')
-      {
-      stage('SCM') {
+          stage('SCM') {
           steps {
               echo 'Check out scripts from GitHub'
               git 'https://github.com/kruti149/DevOps.git'
           }
       }
       stage('Build') {
+         when{
+            expression {
+            GIT_BRANCH == 'Jenkins'
+            }
+         }
             steps {
-            echo " Starting build in {$BRANCH_NAME}" 
+               echo " Starting build in {$BRANCH_NAME}" 
             bat 'build.bat'
          }
       }
@@ -30,7 +33,7 @@ pipeline {
              bat 'deploy.bat'
           }
       }
-      }}
+      }
    
    post {
        always {
