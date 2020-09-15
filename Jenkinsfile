@@ -14,7 +14,7 @@ pipeline {
       stage('Build') {
          when{
             expression {
-            GIT_BRANCH == 'Jenkins'
+              env.GIT_BRANCH == 'Jenkins'
             }
          }
             steps {
