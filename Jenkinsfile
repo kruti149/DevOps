@@ -5,6 +5,8 @@ pipeline {
    }
 
    stages {
+      if(env.BRANCH_NAME == 'Jenkins')
+      {
       stage('SCM') {
           steps {
               echo 'Check out scripts from GitHub'
@@ -12,10 +14,7 @@ pipeline {
           }
       }
       stage('Build') {
-         when{
-            expression { BRANCH_NAME == 'Jenkins'}
-         }
-         steps {
+            steps {
             echo " Starting build in {$BRANCH_NAME}" 
             bat 'build.bat'
          }
@@ -31,7 +30,7 @@ pipeline {
              bat 'deploy.bat'
           }
       }
-   }
+      }}
    
    post {
        always {
