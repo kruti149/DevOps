@@ -1,9 +1,5 @@
 pipeline {
    agent any
-   environment{
-     GIT_BRANCH = "Jenkins"
-   }
-
    stages {
           stage('SCM') {
           steps {
@@ -12,13 +8,8 @@ pipeline {
           }
       }
       stage('Build') {
-         when{
-            expression {
-              env.GIT_BRANCH == 'Jenkins'
-            }
-         }
             steps {
-               echo " Starting build in {$BRANCH_NAME}" 
+               //echo " Starting build in {$BRANCH_NAME}" 
             bat 'build.bat'
          }
       }
