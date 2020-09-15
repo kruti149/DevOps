@@ -12,6 +12,9 @@ pipeline {
           }
       }
       stage('Build') {
+         when{
+            expression { BRANCH_NAME == Jenkins}
+         }
          steps {
             echo " Starting build in {$BRANCH_NAME}" 
             bat 'build.bat'
