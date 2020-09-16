@@ -4,7 +4,7 @@ pipeline {
           stage('SCM') {
           steps {
               echo 'Check out scripts from GitHub'
-              git 'https://github.com/kruti149/DevOps.git'
+              //git 'https://github.com/kruti149/DevOps.git'
           }
       }
       stage('Build') {
