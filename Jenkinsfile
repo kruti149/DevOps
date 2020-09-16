@@ -15,7 +15,8 @@ pipeline {
       }
       stage('Unit') {
           steps {
-              bat 'testing.bat'
+              //bat 'testing.bat'
+             bat 'nunit.bat'
           }
       }
       stage('Deploy') {
