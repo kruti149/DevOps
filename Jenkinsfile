@@ -9,7 +9,7 @@ pipeline {
       }
       stage('Build') {
             steps {
-               //echo " Starting build in {$BRANCH_NAME}" 
+               echo " Starting build " 
             bat 'build.bat'
          }
       }
