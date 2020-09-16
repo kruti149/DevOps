@@ -1,12 +1,12 @@
 pipeline {
    agent any
    stages {
-          stage('SCM') {
-          steps {
-              echo 'Check out scripts from GitHub'
+        //  stage('SCM') {
+          //steps {
+            //  echo 'Check out scripts from GitHub'
               //git 'https://github.com/kruti149/DevOps.git'
-          }
-      }
+          //}
+      //}
       stage('Build') {
             steps {
                echo " Starting build " 
