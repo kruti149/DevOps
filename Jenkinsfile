@@ -10,20 +10,20 @@ pipeline {
       stage('Build') {
             steps {
                echo " Starting build " 
-            bat 'build.bat'
+           // bat 'build.bat'
          }
       }
       stage('Unit') {
           steps {
              echo "Starting unit testing"
-              bat 'testing.bat'
+             // bat 'testing.bat'
             // bat 'nunit.bat'
           }
       }
       stage('Deploy') {
           steps {
           echo 'Start Deploy...' 
-             bat 'deploy.bat'
+            // bat 'deploy.bat'
           }
       }
       }
