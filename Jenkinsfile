@@ -1,4 +1,5 @@
 define gv 
+
 pipeline{
     agent any
     parameters{
@@ -23,13 +24,16 @@ pipeline{
            }   
        }
        stage("test"){
-           steps{
            when{
                expression{
                    params.executeTest
                }
-           }
-           }
+           steps{
+               script{
+               gv.testApp()
+                     }           
+                }
+                }
        }
        stage("deploy"){
            steps{
