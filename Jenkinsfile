@@ -4,14 +4,12 @@ pipeline {
           stage('SCM') {
           steps {
               echo 'Check out scripts from GitHub'
+             echo 'Checking polling'
               git 'https://github.com/CamperDave2016/pipeline_scripts.git'
           }
       }
       stage('Build') {
-         when{
-    branch 'Jenkins'
-  }   
-         steps {
+        steps {
                  echo " Starting build " 
             bat 'build.bat'
          }
