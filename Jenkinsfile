@@ -11,7 +11,7 @@ pipeline{
         {
             steps{
                 script{
-                    gv = load "script-groovy.groovy"
+                    gv = load("script-groovy.groovy")
                 }
             }
 
