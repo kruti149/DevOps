@@ -8,7 +8,7 @@ def testApp()
     echo 'func to test the application'
 }
 
-def deployAp()
+def deployApp()
 {
     echo 'func to deploy the application'
     echo "deploying verison ${params.VERSION}"
