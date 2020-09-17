@@ -28,12 +28,13 @@ pipeline{
                expression{
                    params.executeTest
                }
+           }
            steps{
                script{
                gv.testApp()
                      }           
                 }
-                }
+                
        }
        stage("deploy"){
            steps{
