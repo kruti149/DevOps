@@ -8,8 +8,11 @@ pipeline {
           }
       }
       stage('Build') {
-            steps {
-               echo " Starting build " 
+         when{
+    branch 'Jenkins'
+  }   
+         steps {
+                 echo " Starting build " 
             bat 'build.bat'
          }
       }
