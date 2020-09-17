@@ -17,8 +17,8 @@ pipeline {
       stage('Unit') {
           steps {
              echo "Starting unit testing"
-              bat 'testing.bat'
-           // bat 'nunit.bat'
+             // bat 'testing.bat'
+            bat 'nunit.bat'
           }
       }
       stage('Deploy') {
