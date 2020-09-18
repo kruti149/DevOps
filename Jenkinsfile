@@ -1,9 +1,6 @@
 pipeline {
    agent any
-   environment {
-  BRANCH_NAME = "Jenkins"
-}
-   stages {
+    stages {
           stage('SCM') {
           steps {
               echo 'Check out scripts from GitHub'
