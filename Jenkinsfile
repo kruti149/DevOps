@@ -19,8 +19,7 @@ pipeline{
        stage("build"){
            steps{
                  script{
-               //def gv = load("script.groovy")      
-               gv.buildApp()
+                      gv.buildApp()
                  }
            }   
        }
@@ -32,8 +31,7 @@ pipeline{
            }
            steps{
                script{
-                   //def gv = load("script.groovy")
-               gv.testApp()
+                           gv.testApp()
                      }           
                 }
                 
@@ -41,8 +39,7 @@ pipeline{
        stage("deploy"){
            steps{
            script{
-               //def gv = load("script.groovy")
-               gv.deployApp()
+                         gv.deployApp()
            }
            }
        }
