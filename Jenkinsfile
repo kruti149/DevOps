@@ -1,4 +1,4 @@
-define gv 
+//define gv 
 
 pipeline{
     agent any
@@ -11,7 +11,7 @@ pipeline{
         {
             steps{
                 script{
-                    gv = load("script-groovy.groovy")
+                   def gv = load("script.groovy")
                 }
             }
 
@@ -19,6 +19,7 @@ pipeline{
        stage("build"){
            steps{
                  script{
+               def gv = load("script.groovy")      
                gv.buildApp()
                  }
            }   
@@ -31,6 +32,7 @@ pipeline{
            }
            steps{
                script{
+                   def gv = load("script.groovy")
                gv.testApp()
                      }           
                 }
@@ -39,6 +41,7 @@ pipeline{
        stage("deploy"){
            steps{
            script{
+               def gv = load("script.groovy")
                gv.deployApp()
            }
            }
