@@ -11,7 +11,7 @@ pipeline {
       stage('Build') {
         steps {
                  echo " Starting build " 
-            bat 'kruti.bat'
+            bat 'build.bat'
            //bat label: '', script: 'build.bat'
          }
       }
