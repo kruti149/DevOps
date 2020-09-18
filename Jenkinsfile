@@ -20,7 +20,7 @@ pipeline{
            steps{
                  script{
                gv.buildApp()
-           }
+                 }
            }   
        }
        stage("test"){
