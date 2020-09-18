@@ -11,7 +11,8 @@ pipeline {
       stage('Build') {
         steps {
                  echo " Starting build " 
-            bat 'build.bat'
+            //bat 'build.bat'
+           bat label: '', script: 'testing.bat'
          }
       }
       stage('Unit') {
