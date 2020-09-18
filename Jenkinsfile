@@ -1,5 +1,8 @@
 pipeline {
    agent any
+   environment {
+  BRANCH_NAME = "Jenkins"
+}
    stages {
           stage('SCM') {
           steps {
