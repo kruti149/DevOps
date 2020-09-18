@@ -5,7 +5,7 @@ pipeline {
           steps {
               echo 'Check out scripts from GitHub'
              echo 'Checking polling'
-              git 'https://github.com/kruti149/DevOps.git'
+             // git 'https://github.com/kruti149/DevOps.git'
           }
       }
       stage('Build') {
