@@ -1,0 +1,41 @@
+MONITOR MONGODB APPLICATION USING PROMETHEUS AND GRAFANA ON GOOGLE CLOUD PLATFORM (GCP)
+
+1) Setup Prometheus and Grafana using prometheus-grafana-setup file
+
+2) Create mongodb.yaml file
+
+3) Apply the deployment
+   kubectl apply -f mongodb.yaml
+   kubectl get pod // to check mongodb pod is created
+
+5) Get Exporter to scrape the data. It fetches the metrics from MongoDB and convert into correct format which Prometheus and Grafana understands. it exposes metrics to /metrics    endpoint. Create separate deployment so that you can easily remove/update it later.
+   https://prometheus.io/docs/instrumenting/exporters/
+
+   MongoDB Exporter
+   helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+   helm repo update
+
+Create values.yaml file 
+vi values.yaml
+mongodb:
+  uri: "mongodb://mongodb-service:27017"
+
+serviceMonitor:
+  additionalLabels:
+    release: prometheus
+
+
+helm install mongodb-exporter prometheus-community/prometheus-mongodb-exporter -f values.yaml
+
+6) Expose the port and check MongoDB exporter is working
+
+  kubectl port-forward service/mongodb-exporter-prometheus-mongodb-exporter 9216
+  
+7) port-forwardings
+  kubectl port-forward service/mongodb-exporter-prometheus-mongodb-exporter 9216
+  webpreview -> port no -> 9216
+
+  kubectl port-forward deployment/prometheus-grafana 3000
+ 
+  kubectl port-forward prometheus-kube-prometheus-operator-6f68b65bf-cclwh 9000
+
