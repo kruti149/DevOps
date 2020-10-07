@@ -15,11 +15,11 @@ DEPLOY PROMETHEUS STACK USING HELM
   --cluster-version 1.15
   
   Check if cluster is running
-		gcloud container clusters list
+    gcloud container clusters list
     kubectl cluster-info
     
-3)  Install Helm
-    wget https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz
+3)  Install Helm    
+    wget https://get.helm.sh/helm-v3.2.1-linux-amd64.tar.gz    
     tar zxfv helm-v3.2.1-linux-amd64.tar.gz
     cp  linux-amd64/helm .
     ./helm version
