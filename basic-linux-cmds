@@ -70,3 +70,20 @@ Ctrl+U – erases the whole line
 Ctrl+R – type to bring up a recent command
 !! - repeats the last command
 exit – log out of current session
+
+6) Working with Text
+
+cat - creating and displaying text files
+pager - view the contents, display one page of data at a time
+head - display only the first few lines of a file
+tail- display only the last few lines of a file, -n option is used with a number prefixed by the plus sign
+pipe | - used to send the output of one command to another. 
+sort -  used to rearrange the lines of files or input in either dictionary or numeric order.
+	-t,	Specifies the comma character as the field delimiter
+	-k2	Sort by field #2
+	-k1n	Numerically sort by field #1
+	-k3	Sort by field #3
+wc- counts the number of lines, words and bytes for a file, and a total line count if more than one file is specified. 
+cut - extract columns of text from a file or standard input.
+grep - used to filter lines in a file or the output of another command that matches a specified pattern
+       -w option returns lines which contain matches that form whole words. 
