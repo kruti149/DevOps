@@ -80,6 +80,7 @@ tail- display only the last few lines of a file, -n option is used with a number
 pipe | - used to send the output of one command to another. 
 sort -  used to rearrange the lines of files or input in either dictionary or numeric order.
 	-t,	Specifies the comma character as the field delimiter
+	-u      To sort and remove duplicates
 	-k2	Sort by field #2
 	-k1n	Numerically sort by field #1
 	-k3	Sort by field #3
@@ -94,3 +95,53 @@ find - search in the directory specified and recursively search all of the subdi
 tr -translates characters, but it only accepts data from stdin, never from a file name given as an argument.
 more - displays one page of data at a time, spacebar to continue
 less - display the entire contents of the file. Then search the file, use n to move forward, and N to move backwards and q to quit
+
+7) Basic Scripting
+
+./filename - to indicate that it should be run out of the current directory.
+chmod - used to change the permissions of a file
+
+Nano Editor:
+  Ctrl + W	search the document
+  Ctrl + W, then Control + R	search and replace
+  Ctrl + G	show all the commands possible
+  Ctrl + Y/V	page up / down
+  Ctrl + C	show the current position in the file and the file’s size
+
+Vi Editor:
+vi editor has two modes: insert and command. 
+Type an i to enter the “insert” mode of vi
+Then press the Esc key to leave insert mode. Type :wq to write the file to disk and quit.
+Key	Function
+:x	Will save and close the file.
+:wq	Will write to file and quit.
+:wq!	Will write to a read-only file, if possible, and quit.
+ZZ	Will save and close. Notice that no colon : is used in this case.
+:q!	Exit without saving changes
+:e!	Discard changes and reload file
+:w!	Write to read-only, if possible.
+j	Moves cursor down one line (same as down arrow)
+k	Moves cursor up line (same as up arrow)
+l	Moves cursor to the right one character (same as right arrow)
+h	Moves cursor to the left one character (same as left arrow)
+w	Moves cursor to beginning of next word
+e	Moves cursor to end of word
+b	Moves cursor to beginning of previous word
+$	Moves cursor to end of current line (same as End key)
+0       Moves cursor beginning of current line (same as Home key)
+3G	Jumps to third line (nG jumps to the nth line)
+1G	Jumps to first line
+~	changes letter to lower case
+Shift+G	Jumps to the last line
+dw - to delete word
+u - to undo last operation
+xxxx - to delete 4 characters
+4u - to undo last 4 operations
+dd - delete current line
+p - Whatever was lasted deleted or yanked can be “pasted”.
+J - Join two lines, the current and the next
+yw - copy the current word
+o - insert blank line below current line
+
+echo $? - After a program runs, be it a binary or a script, it returns an exit code which is an integer between 0 and 255. 
+an exit code of 0 means “everything is OK”. Any exit codes greater than 0 mean some kind of error happened, which is specific to the program.
