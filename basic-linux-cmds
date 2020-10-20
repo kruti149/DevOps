@@ -29,6 +29,18 @@ chmod octal file – change the permissions of file to octal, which can be found
 1 – execute (x)
 chmod 777 – read, write, execute for all
 chmod 755 – rwx for owner, rx for group and world
+newgrp - to change your current primary group.
+exit - To switch the primary group back to the original
+chgrp - To change the group owner of an existing file 
+   -R : To change the group ownership of all of the files of a directory structure
+chown - allows the root user to change the user ownership of files and directories.
+umask - used to determine default permissions that are set when a file or directory is created.
+Permission Types
+Each group is attributed three basic types of permissions: read, write, and execute.
+
+User Owner	             Group Owner	         Other
+Read	Write	Execute    Read	  Write Execute    Read	  Write	Execute
+r        w         x         r     w      x         r       w      x
 
 3) System Info:
 
