@@ -206,7 +206,10 @@ userdel - used to delete users
 ifconfig - stands for interface configuration and is used to display network configuration information (deprecated in some Linux distributions)
 ip addr show - displays network configuration details
 route - To view a table that describes where network packages are sent
-netstat -  used to display information about network connections as well as display the routing table.commonly            used to display open ports.
+netstat -  used to display information about network connections as well as display the routing table.commonly used to display open ports.
+     -t  :limits the listing to TCP ports
+     -l : limits the output to ports with listening services
+     -n : shows the network addresses numerically:
 ss - show socket statistics and supports all the major packet and socket types
 host - works with DNS to associate a hostname with an IP address or vice versa
 ping host – ping host and output results
