@@ -95,6 +95,9 @@ find - search in the directory specified and recursively search all of the subdi
 tr -translates characters, but it only accepts data from stdin, never from a file name given as an argument.
 more - displays one page of data at a time, spacebar to continue
 less - display the entire contents of the file. Then search the file, use n to move forward, and N to move backwards and q to quit
+grep -r pattern dir – search recursively for pattern in dir
+command | grep pattern – search for pattern in the output of command
+locate file – find all instances of file
 
 7) Basic Scripting
 
@@ -159,8 +162,14 @@ lsusb - list the USB connected devices
 ps - shows the current processes running in the current shell
 ps aux/-ef - To be able to view all processes on the system 
 jobs - to view all running jobs
+top – display all running processes
 kill %3 - using the job number, stop the last ping 
 killall ping - stop all of the ping commands
+kill pid – kill process id pid
+killall proc – kill all processes named proc *
+bg – lists stopped or background jobs; resume a stopped job in the background
+fg – brings the most recent job to foreground
+fg n – brings job n to the foreground
 
 System logs are stored in the /var/log directory
 
@@ -191,3 +200,34 @@ usermod - modifying an existing user account
 	-u NEW_UID	--uid NEW_UID	Specify the user's UID to be NEW_UID.
 	-U	--unlock	Unlock the user account.
 userdel - used to delete users
+
+10) Network Configuration
+
+ifconfig - stands for interface configuration and is used to display network configuration information (deprecated in some Linux distributions)
+ip addr show - displays network configuration details
+route - To view a table that describes where network packages are sent
+netstat -  used to display information about network connections as well as display the routing table.commonly            used to display open ports.
+ss - show socket statistics and supports all the major packet and socket types
+host - works with DNS to associate a hostname with an IP address or vice versa
+ping host – ping host and output results
+whois domain – get whois information for domain
+dig domain – get DNS information for domain
+dig -x host – reverse lookup host
+wget file – download file
+wget -c file – continue a stopped download
+ssh user@host – connect to host as user
+ssh -p port user@host – connect to host on port port as user
+ssh-copy-id user@host – add your key to host for user to enable a keyed or passwordless login
+
+The primary configuration file for an IPv4 network interface is the /etc/sysconfig/network-scripts/ifcfg-eth0 file.
+the primary IPv6 configuration file is the same file where IPv4 configuration is stored; the /etc/sysconfig/network-scripts/ifcfg-eth0 file. If you want to have your system have a static IPv6 address, add the following to the configuration file:
+
+IPV6INIT=yes
+IPV6ADDR=<IPv6 IP Address>
+IPV6_DEFAULTGW=<IPv6 IP Gateway Address>
+If you want your system to be a DHCP IPv6 client, then add the following setting:
+
+DHCPV6C=yes
+You also need to add the following setting to the /etc/sysconfig/network file:
+
+NETWORKING_IPV6=yes
