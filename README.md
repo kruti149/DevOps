@@ -1,3 +1,2 @@
-# DevOps
-DevOps tools tutorial
-Git, Docker and Kubernetes demo projects
+# GCP Project
+Co-op project in Google Cloud Platform
