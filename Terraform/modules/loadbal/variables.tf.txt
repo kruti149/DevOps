@@ -1,0 +1,31 @@
+variable "fwd-rule-name" {
+  default = "frontend1"
+  description = "The name of the global fwd rule being created"
+}
+
+variable "proxy-name" {
+  default = "target-http-proxy"  
+}
+
+variable "url-name" {
+  default = "load-balancer"
+}
+
+variable "healthcheck-name" {
+  type = string
+  default = "healthcheck1"
+}
+
+variable "backend-service-name" {
+  default = "backend1"
+}
+
+variable "project_id"{
+    type        = string
+    description = "this is project id"
+}
+
+variable "instance-grp-name"{
+    type        = string
+    description = "this is instance-grp-name"
+}

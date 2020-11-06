@@ -1,0 +1,61 @@
+variable "project_id" {
+  default = "kruti-wrkspace"
+  description = "The ID of the project where this VPC will be created"  
+}
+
+variable "region" {
+ default = "us-central1"
+}
+
+variable "network_name" {
+  default = "bcc-vpc"
+  description = "The name of the network being created"
+  }
+
+variable "routing_mode" {
+  type        = string
+  default     = "REGIONAL"
+  description = "The network routing mode"
+}
+
+variable "auto_create_subnetworks" {
+  type        = bool
+  default     = false
+}
+
+
+variable "description" {
+    default = "BCC VPC created" 
+}
+
+variable "subnet_name" {
+  description = "The name of the nesubnet being created"
+  default = "bcc-subnet"
+}
+
+variable "subnet_ip" {
+  default     = "10.0.1.0/24"
+  description = "The subnet ip range"
+}
+
+variable "zone" {
+  default = "us-central1-a"
+}
+
+variable "machine_type" {
+  default = "f1-micro"  
+}
+
+variable "image" {
+  default = "ubuntu-os-cloud/ubuntu-minimal-1604-lts"
+}
+
+variable "instance-grp-name" {
+  default = "bcc-stg-grp"
+  description = "The name of the instance grp being created"
+}
+
+variable "firewall" {
+  description = "The name of the firewall for vms being created"
+  default = "bcc-firewall-http-https"
+}
