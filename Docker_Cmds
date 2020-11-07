@@ -1,0 +1,42 @@
+1) BUILD
+docker build -t myimage:1.0 - build image form dockerfile and tag the image
+docker image ls - list all images
+docker image rm <image-name> - deletes and image
+
+2) SHARE
+docker pull myimage - pull image from registry
+docker tag myimage:1.0 myimage:2.0 - retag a local image with new tag name
+docker push /repo/image2 - to push image to registry
+docker cp - copies files or folders between a container and the local filesystem.
+
+3) RUN
+docker container run --name <cont-name> -p 8080:80 imagename - run image on container with port mapping
+docker container ls - list of running containers (--all to include stopped)
+docker create - creates a container but does not start it.
+docker rename - allows the container to be renamed.
+docker rm - deletes a container.
+docker update - updates a container's resource limits.
+docker exec - to login and execute a command in container.
+
+4) START & STOP
+docker container stop <cont-name> - to stop container through SIGTERM
+docker container kill <cont-name>- stop container through SIGKILL
+docker start - starts a container so it is running.
+docker restart - stops and starts a container.
+docker pause - pauses a running container, "freezing" it in place.
+docker unpause - will unpause a running container.
+docker wait - blocks until running container stops.
+docker attach - will connect to a running container
+
+5) INFO
+docker ps - shows running containers.
+docker logs - gets logs from container. 
+docker inspect - looks at all the info on a container 
+docker port - shows public facing port of container.
+docker stats - shows containers' resource usage statistics.
+docker ps -a - shows running and stopped containers.
+docker stats --all shows a list of all containers, default shows just running.	
+docker images - lists all images
+docker commit - creates image from a container, pausing it temporarily if it is running.
+docker rmi - delete image
+docker history - shows image history	
