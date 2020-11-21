@@ -1,8 +1,8 @@
 ---
-- hosts: webservers 
+- hosts: testservers 
   become: True
   tasks:
-    - name: Install packages
+    - name: Install Apache
       yum:
         name: "httpd"
         state: "present"
