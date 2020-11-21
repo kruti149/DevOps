@@ -1,0 +1,2 @@
+[bccservers]
+35.238.107.8 ansible_connection=local
