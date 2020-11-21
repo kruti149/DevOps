@@ -1,8 +1,8 @@
 - hosts: testservers
   tasks:
     - name: install Apache
-      apt: 
-        name: apache2 
+      yum: 
+        name: httpd 
         state: present
         become: true
         notify:
@@ -10,5 +10,6 @@
   handlers:
     - name: startapache2
       service: 
-        name: apache2
+        name: httpd
         state: started
+        enabled: True
