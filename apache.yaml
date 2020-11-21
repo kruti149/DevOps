@@ -1,13 +1,6 @@
 ---
-- hosts: testservers 
-  become: True
+- hosts: testservers
+  sudo: yes
   tasks:
-    - name: Install Apache
-      yum:
-        name: "httpd"
-        state: "present"
-    - name: Start Apache server
-      service:
-        name: httpd
-        state: started
-        enabled: True
+    - name: install apache2
+      apt: name=apache2 update_cache=yes state=latest
