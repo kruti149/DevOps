@@ -1,0 +1,14 @@
+- hosts: testservers
+  tasks:
+    - name: install Apache
+      apt: 
+        name: apache2 
+        state: present
+        become: true
+        notify:
+        - start apache2
+  handlers:
+    - name: startapache2
+      service: 
+        name: apache2
+        state: started
