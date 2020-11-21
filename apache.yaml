@@ -1,6 +1,18 @@
----
-- hosts: testservers
-  sudo: yes
+- name: Install required software
+  hosts: testservers
+
   tasks:
-    - name: install apache2
-      apt: name=apache2 update_cache=yes state=latest
+    - yum:
+        name: "{{ packages }}"
+        state: present
+      vars: 
+        packages:
+         - httpd
+      become: true
+        
+    - service:
+        name: httpd
+        state: started
+        enabled: yes
+
+
