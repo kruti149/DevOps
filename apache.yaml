@@ -8,7 +8,7 @@
       vars: 
         packages:
          - httpd
-      become: true
+      become: yes
         
     - service:
         name: httpd
