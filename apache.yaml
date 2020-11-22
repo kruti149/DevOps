@@ -1,6 +1,5 @@
 - name: Install required software
   hosts: testservers
-  become: yes
   
   tasks:
     - yum:
