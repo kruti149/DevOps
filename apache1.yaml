@@ -2,7 +2,7 @@
 - hosts: testservers
   tasks:
   - name : install apache
-    apt  : name=apache2 state=present 
+    yum  : name=apache2 state=present 
     notify:
      - start apache2
    
