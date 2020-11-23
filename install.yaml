@@ -1,6 +1,6 @@
 ---
 - hosts: testservers 
-  become: True
+  
   tasks:
     - name: Install packages
       yum:
