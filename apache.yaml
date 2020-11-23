@@ -1,6 +1,6 @@
 - name: Install required software
   hosts: testservers
-  become: true
+  become: True
   tasks:
     - yum:
         name: "{{ packages }}"
