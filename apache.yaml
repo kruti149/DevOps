@@ -3,7 +3,7 @@
   tasks:
   - name : install apache
     yum  : name=httpd state=present 
-    become : true
+    become_user : jenkinstest
     notify:
      - start httpd
    
