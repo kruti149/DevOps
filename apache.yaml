@@ -9,4 +9,4 @@
    
   handlers:
    - name : start httpd
-     service : name=httpd state=started
+     service : name=httpd state=started enabled=yes
