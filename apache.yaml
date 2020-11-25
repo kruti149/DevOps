@@ -1,12 +1,15 @@
 ---
-- hosts: testservers
+- name: Install required software
+  hosts: testservers
+  become: true
   tasks:
-  - name : install apache
-    yum  : name=httpd state=present 
-    become : true
-    notify:
-     - start httpd
-   
-  handlers:
-   - name : start httpd
-     service : name=httpd state=started enabled=yes
+    - yum:
+        name: "{{ packages }}"
+        state: present
+      vars: 
+        packages:
+         - httpd        
+    - service:
+        name: httpd
+        state: started
+        enabled: yes
