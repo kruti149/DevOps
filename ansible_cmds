@@ -1,0 +1,31 @@
+# Ansible Installation
+sudo apt-get update
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible $ sudo apt-get update
+sudo apt-get install ansible
+ansible --version
+
+ansible <group> -m ping : To check the connectivity of hosts
+ansible<group> -m steup | less : To check the host system’s info
+ansible all -m ping -u test: To connect as a different user, append the command with the -u flag and the name of the intended user
+ansible all -m ping --private-key=~/.ssh/custom_id : To use a custom SSH key to connect to the remote servers
+ansible all -m ping --ask-pass : to use password-based authentication in order to connect to the nodes
+ansible all -m ping --ask-become-pass : If the user needs to provide a password in order to run sudo commands
+
+ansible <group> -m copy -a “src=home/ansible dest=/test/home” : To transfer files
+ansible<group> -m user -a “name=ansible password= <encrypted password>” : to create new user
+ansible<group> -m user -a “name=ansible state- absent” : to delete user
+ansible<group> -m service -a “name= httpd state=”started” : to start service
+ansible<group> -m service -a “name= httpd state=”stopped” : to stop service
+ansible<group> -m service -a “name= httpd state=”restarted” : to restart service
+ansible<group> -m yum -a “name=httpd state=latest” : To check if a package is installed and to update it
+
+ansible all -m ping -i custom_inv : User custom inventory file
+ansible all -a "uname -a" : Run ad-hoc commands, execute uname -a on all the nodes in your inventory
+ansible -i hosts.ini testservers -a "free -h" -u kruti_t_r 
+
+ansible-playbook testplaybook.yaml : to run playbook
+ansible-playbook -l server1 testplaybook.yaml : overwrite the default hosts option in the playbook and limit execution to a certain group or host
+ansible-playbook testplaybook.yaml --list-tasks :  list all tasks that would be executed by a play without making any changes to the remote servers
+ansible-playbook testplaybook.yaml --list-hosts : list all hosts that would be affected by a play, without running any tasks on the remote servers
+
