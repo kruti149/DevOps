@@ -1,0 +1,28 @@
+# gcloud commands to create service account, add members, custom roles and give permissions. 
+
+gcloud iam service-accounts create theblindchat --display-name "theblindchat"
+
+gcloud projects add-iam-policy-binding $GOOGLE_CLOUD_PROJECT \
+    --member "serviceAccount:theblindchat@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com" \
+    --role "roles/viewer"
+
+gcloud iam service-accounts keys create ~/blindchat-key.json \
+    --iam-account "theblindchat@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com"
+    
+gcloud projects add-iam-policy-binding kruti-wrkspace \
+    --member=user:test@gmail.com --role=roles/viewer
+
+# You cannot grant the owner role to a member for a project using the Cloud IAM API or the gcloud command-line tool.
+# You can only add owners to a project using the Cloud Console. 
+# An invitation will be sent to the member via email and the member must accept the invitation to be made an owner of the project
+
+# Create custom role
+gcloud iam roles create blindchatadmin --project=kruti-wrkspace \
+  --title="Blindchat Admin" --description="Blindchat custom role" \
+  --permissions=iam.roles.get,iam.roles.list,iam.roles.create,iam.roles.delete --stage=ALPHA
+
+# Assign custom role to new user
+gcloud projects add-iam-policy-binding kruti-wrkspace \
+    --member=user:test@gmail.com --role=projects/kruti-wrkspace/roles/blindchatadmin
+
+
