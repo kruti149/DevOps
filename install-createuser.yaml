@@ -1,0 +1,37 @@
+# Playbook to install softwares and to create users
+
+---
+- name: Install required software
+  hosts: all
+  tasks:
+    - yum:
+        name: "{{ packages }}"
+        state: present
+      vars: 
+        packages:
+         - git
+         - tcpdump
+         - php
+      become: true
+        
+    - service:
+        name: httpd
+        state: started
+        enabled: yes
+- name: Create users
+  hosts: all
+  vars:
+    usernames:
+     - devs
+     - security
+     - admins
+  tasks:
+   - group:
+      name: web
+      state: present
+   - user:
+      name: "{{ item }}"
+      state: present
+      group: web
+      append: yes
+     with_items: "{{ usernames }}"
