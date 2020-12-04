@@ -1,0 +1,54 @@
+/* IMP 
+The network ports required for a Docker Swarm to function correctly are:
+TCP port 2376 for secure Docker client communication. This port is required for Docker Machine to work. Docker Machine is used to orchestrate Docker hosts.
+TCP port 2377. This port is used for communication between the nodes of a Docker Swarm or cluster. It only needs to be opened on manager nodes.
+TCP and UDP port 7946 for communication among nodes (container network discovery).
+UDP port 4789 for overlay network traffic (container ingress networking). */
+
+# Spin 2 Docker servers with Ubuntu OS and install Docker engine on them. One will be swarm manager and other will be worker node. 
+
+sudo apt-get update
+
+sudo apt-get -y install \
+ apt-transport-https \
+ ca-certificates \
+ curl \
+ gnupg-agent \
+ software-properties-common
+ 
+ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+ 
+ sudo add-apt-repository \
+ "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+ $(lsb_release -cs) \
+ stable"
+ 
+ sudo apt-get install docker-ce docker-ce-cli containerd.io
+ 
+ sudo docker version
+ 
+ docker run hello-world
+ 
+ # After installation is done by above mentioned steps, configure swarm manager node
+ 
+ docker swarm init --advertise-addr 10.0.1.4
+ 
+ docker swarm join-token worker
+ 
+ ufw allow 2376/tcp
+ ufw allow 2377/tcp
+ ufw allow 7946/tcp
+ ufw allow 7946/udp
+ ufw allow 4789/udp
+ 
+ systemctl restart docker
+ 
+ docker node ls 
+ 
+ # In worker node 
+ 
+  docker swarm join --token SWMTKN-1-0ry514h8jdyn93w0ny
+ 
+ 
+ 
+ 
